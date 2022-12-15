@@ -37,8 +37,6 @@ const paises = [
     }
 ];
 
-
-mostrarPaises();
 agregarMonitores();
 
 //funcion para agregar listeners a los botones
