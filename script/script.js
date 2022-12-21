@@ -52,8 +52,8 @@ function mostrarPaises() {
   for(let pais of  paises){
     contenido +=
     `
-    <div>
-      <table class="table text-center">
+    <div class="col col-lg-12">
+      <table class="table p-2 text-center">
         <thead>
           <tr>
             <th>Nombre</th>
@@ -63,7 +63,7 @@ function mostrarPaises() {
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr">
             <td>${pais.nombre}</td>
             <td>${pais.capital}</td>
             <td>${pais.idioma_oficial}</td>
@@ -73,7 +73,7 @@ function mostrarPaises() {
         <tfoot>
           <tr>
             <td colspan="4">
-              <img src="${pais.bandera}">
+              <img src="${pais.bandera}" alt="bandera, ${pais.nombre}">
             </td>
           </tr>
         </tfoot>
@@ -86,4 +86,31 @@ function mostrarPaises() {
 
 //funcion que permite agregar un pais al arreglo
 function agregarPais() {
+  let validacion = true;
+  let nuevoPais = {
+    nombre: "",
+    bandera: "",
+    capital: "",
+    idioma_oficial: "",
+    moneda: ""
+  };
+
+  /* capturas */
+  nuevoPais.nombre = prompt('INGRESE EL NOMBRE DEL PAÍS:');
+  nuevoPais.bandera = prompt('INGRESE LA BANDERA DEL PAÍS (URL):');
+  nuevoPais.capital = prompt('INGRESE LA CAPITAL DEL PAÍS:');
+  nuevoPais.idioma_oficial = prompt('INGRESE EL IDIOMA OFICIAL DEL PAÍS:');
+  nuevoPais.moneda = prompt('INGRESE LA MONEDA DEL PAÍS:');
+
+  /* validación */
+  for(let propiedad in nuevoPais){
+    if((nuevoPais[propiedad] == '') || (nuevoPais[propiedad] == null)){
+      validacion = false;
+      break;
+    }
+  }
+  if(validacion){
+    paises.unshift(nuevoPais);
+    mostrarPaises();
+  }
 }
