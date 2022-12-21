@@ -48,6 +48,40 @@ function agregarMonitores() {
 
 //funcion que mostrara las paises en la pagina
 function mostrarPaises() {
+  let contenido = '';
+  for(let pais of  paises){
+    contenido +=
+    `
+    <div>
+      <table class="table text-center">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Capital</th>
+            <th>Idioma</th>
+            <th>Moneda</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>${pais.nombre}</td>
+            <td>${pais.capital}</td>
+            <td>${pais.idioma_oficial}</td>
+            <td>${pais.moneda}</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="4">
+              <img src="${pais.bandera}">
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    `;
+  }
+  document.getElementById('paises').innerHTML = contenido;
 }
 
 //funcion que permite agregar un pais al arreglo
