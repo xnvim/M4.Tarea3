@@ -53,7 +53,7 @@ function mostrarPaises() {
     contenido +=
     `
     <div class="col col-lg-12">
-      <table class="table p-2 text-center">
+      <table class="table table-dark p-2 text-center">
         <thead>
           <tr>
             <th>Nombre</th>

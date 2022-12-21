@@ -14,3 +14,7 @@ tr, td{
     border: 1px solid black;
 }
 
+/* estilos propios */
+#paises {
+    margin: 10px 0;
+}
